@@ -60,7 +60,7 @@ function Home() {
                     </motion.button>
                 </motion.div>
 
-                <div className="hidden md:flex bg-[url(themewagon/home/illustration1.png)] bg-center bg-cover bg-no-repeat">
+                <div className="hidden md:flex bg-[url('/themewagon/home/illustration1.png')] bg-center bg-cover bg-no-repeat">
                     <div className="h-40 w-100 lg:h-80 lg:w-140 xl:h-120 xl:w-220"></div>
                 </div>
             </div>

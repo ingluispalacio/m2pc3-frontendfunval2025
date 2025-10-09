@@ -26,7 +26,7 @@ function Footer() {
     },
   ];
   return (
-    <footer className="pt-8 bg-[url(themewagon/footer/image1.png)] bg-cover bg-bottom bg-no-repeat shadow flex flex-col items-center text-sm text-gray-500 lg:px-30 xl:px-50">
+    <footer className="pt-8 bg-[url('/themewagon/footer/image1.png')] bg-cover bg-bottom bg-no-repeat shadow flex flex-col items-center text-sm text-gray-500 lg:px-30 xl:px-50">
       {/* Sección superior */}
       <div className="flex flex-col md:flex-row justify-between w-full py-4 px-3 lg:px-0">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 lg:gap-12 text-center md:text-left">
