@@ -1,6 +1,7 @@
 import Home from './pages/Home'
 import { Route, Routes } from 'react-router'
 import MasterLayout from './layouts/MasterLayout'
+import Service from './pages/Service'
 
 
 function App() {
@@ -8,6 +9,7 @@ function App() {
       <Routes>
         <Route element={<MasterLayout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/services" element={<Service />} />
         </Route>
       </Routes>
   )
