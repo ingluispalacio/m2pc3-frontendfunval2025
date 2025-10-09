@@ -1,9 +1,10 @@
 import { useState } from "react";
-import { Link  } from 'react-router'
+import { Link, useLocation } from 'react-router'
 
 function Navbar() {
-  const [open, setOpen] = useState(false);
-  const currentPath = window.location.pathname; 
+  const [open, setOpen] = useState(false); 
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   const items = [
     { to: "/", label: "Home" },
@@ -29,7 +30,6 @@ function Navbar() {
             </Link>
           </div>
 
-          {/* Links escritorio */}
           <div className="hidden md:flex md:space-x-2">
             {items.map((it) => {
               const isActive = currentPath === it.to;
