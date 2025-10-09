@@ -1,15 +1,16 @@
 import { useState } from "react";
+import { Link  } from 'react-router'
 
 function Navbar() {
   const [open, setOpen] = useState(false);
   const currentPath = window.location.pathname; 
 
   const items = [
-    { href: "/", label: "Home" },
-    { href: "/services", label: "Services" },
-    { href: "/works", label: "Works" },
-    { href: "/news", label: "News" },
-    { href: "/contact", label: "Contact" },
+    { to: "/", label: "Home" },
+    { to: "/services", label: "Services" },
+    { to: "/works", label: "Works" },
+    { to: "/news", label: "News" },
+    { to: "/contact", label: "Contact" },
   ];
 
   return (
@@ -18,24 +19,24 @@ function Navbar() {
         <div className="flex justify-between h-16 items-center gap-2 lg:gap-12">
           {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <a href="/" className="flex items-center gap-2">
+            <Link to="/" className="flex items-center gap-2">
               <span className="w-8 h-8 rounded-md bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white font-bold">
                 K
               </span>
               <span className="hidden sm:inline text-2xl font-extrabold bg-gradient-to-r from-[#C381DB] to-[#4E92F9] bg-clip-text text-transparent">
                 Klean
               </span>
-            </a>
+            </Link>
           </div>
 
           {/* Links escritorio */}
           <div className="hidden md:flex md:space-x-2">
             {items.map((it) => {
-              const isActive = currentPath === it.href;
+              const isActive = currentPath === it.to;
               return (
-                <a
-                  key={it.href}
-                  href={it.href}
+                <Link
+                  key={it.to}
+                  to={it.to}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors duration-200
                     ${
                       isActive
@@ -44,7 +45,7 @@ function Navbar() {
                     }`}
                 >
                   {it.label}
-                </a>
+                </Link>
               );
             })}
           </div>
@@ -93,11 +94,11 @@ function Navbar() {
       >
         <div className="px-2 pt-2 pb-3 space-y-1">
           {items.map((it) => {
-            const isActive = currentPath === it.href;
+            const isActive = currentPath === it.to;
             return (
               <a
-                key={it.href}
-                href={it.href}
+                key={it.to}
+                to={it.to}
                 onClick={() => setOpen(false)}
                 className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200
                   ${
