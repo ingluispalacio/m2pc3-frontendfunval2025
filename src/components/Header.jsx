@@ -9,14 +9,13 @@ function Header() {
           Log In
         </button>
         <button
-          className="relative py-2 px-3 rounded-2xl shadow-2xl overflow-hidden group transition-all duration-500 cursor-pointer"
+          className="relative py-2 px-3 rounded-2xl shadow-lg overflow-hidden group transition-all duration-500 cursor-pointer"
         >          
           <span
             className="absolute inset-0 bg-gradient-to-r from-[#C381DB] to-[#4E92F9] 
                opacity-0 group-hover:opacity-100 transition-opacity duration-500"
           ></span>
 
-          {/* Texto degradado (visible al inicio) */}
           <span
             className="relative z-10 bg-gradient-to-r from-[#C381DB] to-[#4E92F9] 
                bg-clip-text text-transparent group-hover:text-white transition-all duration-500"

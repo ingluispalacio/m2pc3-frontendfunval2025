@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Link, useLocation } from 'react-router'
+import { Link, useLocation } from 'react-router';
+import { motion, AnimatePresence } from "framer-motion";
 
 function Navbar() {
   const [open, setOpen] = useState(false); 
@@ -9,16 +10,14 @@ function Navbar() {
   const items = [
     { to: "/", label: "Home" },
     { to: "/services", label: "Services" },
-    { to: "/works", label: "Works" },
-    { to: "/news", label: "News" },
-    { to: "/contact", label: "Contact" },
+    { to: "/features", label: "Features" },
+    { to: "/ours_projects", label: "Ours Projest" }
   ];
 
   return (
     <nav>
       <div className="max-w-7xl mx-auto">
         <div className="flex justify-between h-16 items-center gap-2 lg:gap-12">
-          {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center gap-2">
               <span className="w-8 h-8 rounded-md bg-gradient-to-br from-indigo-500 to-purple-500 flex items-center justify-center text-white font-bold">
@@ -87,32 +86,38 @@ function Navbar() {
       </div>
 
       
-      <div
-        className={`${
-          open ? "block" : "hidden"
-        } md:hidden border-t border-gray-100`}
-      >
-        <div className="px-2 pt-2 pb-3 space-y-1">
-          {items.map((it) => {
-            const isActive = currentPath === it.to;
-            return (
-              <a
-                key={it.to}
-                to={it.to}
-                onClick={() => setOpen(false)}
-                className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200
-                  ${
-                    isActive
-                      ? "text-gray-900 bg-gray-100"
-                      : "text-gray-700 hover:bg-gray-50"
-                  }`}
-              >
-                {it.label}
-              </a>
-            );
-          })}
-        </div>
-      </div>
+        <AnimatePresence>
+        {open && (
+          <motion.div
+            key="mobileMenu"
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.25 }}
+            className="md:hidden absolute border-t border-gray-100 bg-white/90 backdrop-blur-lg shadow-lg top-15 w-full z-50"
+          >
+            <div className="px-4 pt-3 pb-4 space-y-1">
+              {items.map((it) => {
+                const isActive = currentPath === it.to;
+                return (
+                  <Link
+                    key={it.to}
+                    to={it.to}
+                    onClick={() => setOpen(false)}
+                    className={`block px-3 py-2 rounded-md text-base font-medium transition-colors duration-200 ${
+                      isActive
+                        ? "text-gray-900 bg-gray-100"
+                        : "text-gray-700 hover:bg-gray-50"
+                    }`}
+                  >
+                    {it.label}
+                  </Link>
+                );
+              })}
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </nav>
   );
 }

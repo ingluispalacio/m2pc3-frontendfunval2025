@@ -14,7 +14,6 @@ function SocialMedia({ icons }) {
           className="relative p-[2px] rounded-full bg-gradient-to-tr  from-[#C381DB] to-[#4E92F9] transition-all duration-300"
         >
           <div className="flex items-center justify-center rounded-full w-8 h-8 lg:w-12 lg:h-12 bg-[#D8E0F2]/90 backdrop-blur-md  transition-all duration-300">
-            {/* Clonar y modificar el fill del SVG */}
             {React.cloneElement(element, {
               className: `${element.props.className}`,
               fill: "url(#gradient)"

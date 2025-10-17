@@ -10,7 +10,7 @@ function Home() {
     ];
 
     return (
-        <div>
+        <div className="bg-[url('/themewagon/background_elements.svg')] bg-top bg-cover bg-no-repeat">
             <div className="flex justify-between">
                 
                 <motion.div
